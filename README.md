@@ -3,7 +3,9 @@
 ![Design preview for the Conference ticket generator coding challenge](./preview.jpg)
 
 ## Welcome! 👋 MY name iss PARA17SAT
- AND MY YOUTUBE CHANEL VIDEO EXPLAINATION:https://youtu.be/BJZXtzEvoXY?si=GvMZOIy9AFL0ICPs
+ 
+AND MY YOUTUBE CHANEL VIDEO EXPLAINATION:https://youtu.be/BJZXtzEvoXY?si=GvMZOIy9AFL0ICPs
+
 Thanks for checking out this front-end coding challenge.
 
 [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
