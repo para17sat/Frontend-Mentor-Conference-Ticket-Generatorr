@@ -2,126 +2,183 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Conference Ticket Generator</title>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .attribution a {
-      color: hsl(228, 13%, 48%);
-    }
-
-    .upload-box {
-      border: 2px dashed #ccc;
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       padding: 20px;
+      background-image: url('background-desktop.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background-image: url('background-mobile.png');
+      }
+    }
+
+    .container {
+      background-color: #1C1744;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
+      max-width: 600px;
+      width: 100%;
       text-align: center;
-      cursor: pointer;
-      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-out;
+      position: relative;
     }
 
-    .file-input {
-      display: none;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-      font-family: sans-serif;
+    .container img.ticket {
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s 1.2s ease-out backwards;
+    }
+
+    .container h1 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #FF6EC7;
+      animation: fadeIn 1s 0.3s ease-out backwards;
+    }
+
+    .container p {
+      font-size: 1rem;
+      margin-bottom: 32px;
+      color: #B3B3B3;
+      animation: fadeIn 1s 0.6s ease-out backwards;
     }
 
     .form-item {
-      margin-bottom: 1rem;
+      margin-bottom: 24px;
+      animation: fadeIn 1s 0.9s ease-out backwards;
     }
 
-    label {
+    .form-item label {
       display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #FF6EC7;
     }
 
-    input[type="text"],
-    input[type="email"] {
+    .form-item input {
       width: 100%;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    button {
-      padding: 0.75rem 1.5rem;
-      background-color: #889a9c;
-      color: white;
+      padding: 12px;
+      border-radius: 8px;
       border: none;
-      border-radius: 4px;
+      background-color: #2B2556;
+      color: #FFF;
+      font-size: 1rem;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-item input:hover,
+    .form-item input:focus {
+      background-color: #35296B;
+      box-shadow: 0px 0px 10px rgba(255, 110, 199, 0.5);
+      outline: none;
+    }
+
+    .upload-box {
+      border: 2px dashed #FF6EC7;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
       cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s;
     }
 
-    button:hover {
-      background-color: #84289b50;
+    .upload-box:hover {
+      background-color: #2B2556;
+      border-color: #FF4EB7;
     }
 
-    .image-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 1rem;
+    .container button {
+      padding: 12px 24px;
+      background-color: #FF6EC7;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #1C1744;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
     }
 
-    .svg-image img {
-      width: 50px;
-      height: 50px;
+    .container button:hover {
+      background-color: #FF4EB7;
+      transform: scale(1.05);
+    }
+
+    .attribution {
+      margin-top: 24px;
+      font-size: 0.875rem;
+      color: #B3B3B3;
+    }
+
+    .attribution a {
+      color: #FF6EC7;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-  <div class="image-container">
-    <div class="svg-image"><img src="image-avatar.jpg" alt="avatar 1"></div>
-    <div class="svg-image"><img src="image-avatar.jpg" alt="avatar 2"></div>
-    <div class="svg-image"><img src="image-avatar.jpg" alt="avatar 3"></div>
-    <div class="svg-image"><img src="image-avatar.jpg" alt="avatar 4"></div>
+  <div class="container">
+    <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+    <p>Secure your spot at next year's biggest coding conference.</p>
+
+    <form id="ticket-form">
+      <div class="form-item">
+        <label for="fileInput">Upload Avatar</label>
+        <div id="drop-area" class="upload-box">Click here or drag & drop to upload</div>
+        <input type="file" id="fileInput" class="file-input" accept="image/*" style="display:none;">
+      </div>
+
+      <div class="form-item">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+      </div>
+
+      <div class="form-item">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="example@email.com">
+      </div>
+
+      <div class="form-item">
+        <label for="github">GitHub Username</label>
+        <input type="text" id="github" name="github" required placeholder="@para17sat">
+      </div>
+
+      <button type="submit">Generate My Ticket</button>
+    </form>
+
+    <!-- Ticket card image -->
+    <img src="ticket-image.png" alt="Your ticket card" class="ticket">
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Parasat</a>.
+    </div>
   </div>
 
-  <h1 style="text-align: center;">Your Journey to Coding Conf 2025 Starts Here!</h1>
-  <p style="text-align: center;">Secure your spot at next year's biggest coding conference.</p>
-
-  <form id="ticket-form">
-    <div class="form-item">
-      <label for="fileInput">Upload Avatar</label>
-      <div id="drop-area" class="upload-box">Click here or drag & drop to upload</div>
-      <input type="file" id="fileInput" class="file-input" accept="image/*">
-    </div>
-
-    <div class="form-item">
-      <label for="fullName">Full Name</label>
-      <input type="text" id="fullName" name="fullName" required>
-    </div>
-
-    <div class="form-item">
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required placeholder="example@email.com">
-    </div>
-
-    <div class="form-item">
-      <label for="github">GitHub Username</label>
-      <input type="text" id="github" name="github" required placeholder="@para17sat">
-    </div>
-
-    <button type="submit">Generate My Ticket</button>
-  </form>
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Parasat</a>.
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
