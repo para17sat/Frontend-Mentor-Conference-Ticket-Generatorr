@@ -1,5 +1,78 @@
 const form = document.getElementById('ticket-form');
+ const style = document.createElement('style');
+style.textContent = `
+.attribution {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 2rem;
+    }
 
+    .attribution a {
+      color: hsl(228, 13%, 48%);
+    }
+
+    .upload-box {
+      border: 2px dashed #ccc;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      font-family: sans-serif;
+    }
+
+    .form-item {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #889a9c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #84289b50;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .svg-image img {
+      width: 50px;
+      height: 50px;
+    }
+`;
+document.head.appendChild(style);
 const dropArea = document.getElementById('drop-area');
 const fileInput = document.getElementById('fileInput');
 
